@@ -11,7 +11,7 @@ public class RelatedEntity {
     @Column(nullable = false, length = 64)
     private String name;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
     private SingleEntity singleEntity;
 
     public Long getId() {

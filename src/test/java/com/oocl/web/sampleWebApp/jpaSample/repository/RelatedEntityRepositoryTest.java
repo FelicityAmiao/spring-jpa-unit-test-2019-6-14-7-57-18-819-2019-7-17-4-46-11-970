@@ -32,4 +32,11 @@ class RelatedEntityRepositoryTest {
         assertEquals("Felicity", save.getSingleEntity().getName());
     }
 
+    @Test
+    public void should_throw_exception_without_single_entity() {
+        RelatedEntity relatedEntity = new RelatedEntity();
+        relatedEntity.setName("Jerry");
+        assertThrows(Exception.class, () -> relatedEntityRepository.saveAndFlush(relatedEntity));
+    }
+
 }
