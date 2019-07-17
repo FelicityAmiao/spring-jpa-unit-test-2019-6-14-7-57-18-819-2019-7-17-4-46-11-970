@@ -1,11 +1,6 @@
 package com.oocl.web.sampleWebApp.jpaSample.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 
 @Entity
 public class SingleEntity {
@@ -13,8 +8,7 @@ public class SingleEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Max(64)
-    @NotNull
+    @Column(nullable = false, length = 64)
     private String name;
 
     public Long getId() {

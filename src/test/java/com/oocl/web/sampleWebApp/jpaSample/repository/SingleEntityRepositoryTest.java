@@ -28,4 +28,14 @@ class SingleEntityRepositoryTest {
         assertEquals("amiao", addedSingleEntity.getName());
     }
 
+    @Test
+    public void should_throw_exception_when_call_save_given_name_large_than_64() {
+        //given
+        SingleEntity singleEntity = new SingleEntity();
+        singleEntity.setName("ThisTestForLongThisTestForLongThisTestForLongThisTestForLongThisTestForLongThisTestForLongThisTestForLongThisTestForLongThisTestForLongThisTestForLong");
+        singleEntityRepository.save(singleEntity);
+        //then
+        assertThrows(Exception.class, () -> singleEntityRepository.findAll());
+    }
+
 }
