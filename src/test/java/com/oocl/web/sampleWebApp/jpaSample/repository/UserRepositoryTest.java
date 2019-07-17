@@ -1,8 +1,6 @@
 package com.oocl.web.sampleWebApp.jpaSample.repository;
 
 import com.oocl.web.sampleWebApp.jpaSample.entity.User;
-import com.oocl.web.sampleWebApp.jpaSample.repository.UserRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -31,9 +31,8 @@ public class UserRepositoryTest {
     List<User> userList = userRepository.findAll();
 
     //then
-    Assertions.assertEquals(1, userList.size());
-    Assertions.assertEquals("test", userList.get(0).getName());
+    assertEquals(1, userList.size());
+    assertEquals("test", userList.get(0).getName());
   }
-
 }
 
